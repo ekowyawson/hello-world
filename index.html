@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ekow Talks DNS: Networking</title>
     <style>
+        body {
+            margin: 0;
+            font-family: fantasy;
+        }
+
+        .heading {
+            margin: auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* TOP NAV */
         .topnav {
             overflow: hidden;
-            background-color: #333;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,38,121,1) 35%, rgba(0,212,255,1) 100%);
         }
 
         .topnav a {
@@ -20,36 +33,197 @@
         }
 
         .topnav a:hover {
-            background-color: #ddd;
+            background-color: #ffffff;
             color: black;
         }
 
-        /* Create a right-aligned (split) link inside the navigation bar */
         .topnav a.split {
             float: right;
-            background-color: #04AA6D;
-            color: white;
+        }
+
+        /* SECTION 1 */
+        section.sec1 {
+            background-color: #ffffff;
+        }
+
+        section.sec1>div.bg {
+            margin: 10px;
+            border-radius: 10px;
+            background-image: url("dns-image.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 40vh;
+        }
+
+        section img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        img.sec-1-img {
+            border-radius: 5px;
+            margin-bottom: 5em;
+            width: 50%;
+        }
+
+        .main-para > div {
+            text-align: center;
+            padding: 0.01em 16px;
+            margin: 0 20px;
+            background-color: #E7E9EB;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+            border-radius: 5px;
+        }
+
+        .sec1 .main-para > div p {
+            margin: 16px;
+            padding: 10px;
+            text-align: justify;
+            background-color: #ffffff;
+            border-left: 4px solid #00c3ff;
+        }
+
+        /* SECTION 2 */
+        section.sec2 {
+            background-color: #ffffff;
+        }
+
+        section.sec2 p {
+            margin: auto;
+            padding: 10px;
+            text-align: justify;
+        }
+
+        .box {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container > div {
+            text-align: center;
+            padding: 0.01em 16px;
+            margin: 0 20px;
+            background-color: #E7E9EB;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+            border-radius: 5px;
+        }
+
+        .grid-container > div p {
+            margin: 16px 0;
+            background-color: #ffffff;
+            border-left: 4px solid #00c3ff;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 20px;
+        }
+
+        footer p {
+            float: right;
+            margin: auto;
+            padding: 10px;
         }
     </style>
 </head>
 
 <body>
-
+    <!-- Header -->
     <header>
+        <!-- Nav -->
         <nav class="topnav">
-            <a class="active" href="/"><h1>Ekow Talks DNS</h1></a>
-            <a class="split" href="https://cacosta12345.github.io/hello-world/index"><h1>Topher's Corner</h1></a>
+            <a class="active" href="/"><h1>DNS</h1></a>
+            <a class="split" href="https://cacosta12345.github.io/hello-world/index"><h1>Check out Chris's Page</h1></a>
         </nav>
     </header>
 
+    <!-- Main -->
     <main>
-        <section>
 
+        <!-- Section 1 -->
+        <section class="sec1">
+            <div class="bg">
+            </div>
+
+            <div class="heading">
+                <h1>The Domain Name System</h1>
+            </div>
+            
+            <div class="main-para">
+                <div>
+                    <p>
+                        The Domain Name System (DNS) is a service on networked computers that resolves Internet Protocol (IP) addresses to human-readable 
+                        Host Names and vice-versa. The DNS services on each networked computer is made possible by DNS servers (like Google's DNS Server at 
+                        IP address 8.8.8.8). Each DNS server runs protocols, required settings, and services to cache names of hosts along with their 
+                        associated IP addresses. This allows connected computers to present human readable addresses to their users. A Windows Server 2016 
+                        DNS server serves cached names of devices and services to all devices signed into the domain. In some cases, DNS servers within a 
+                        domain serve hostnames and IP addresses (websites) to devices outside of the domain. In order to accomplish this task, the DNS 
+                        server must be configured correctly. An important part of the DNS configuration is the proper setup of DNS Zones. There are <strong>six</strong> types of DNS Zones:
+                        <strong>1) Primary Zone, 2) Secondary Zone, 3) Forward Lookup Zone, 4) Reverse Lookup Zone, 5) Active Directory Integrated Zone,</strong> and <strong>6) Stub Zone</strong>
+                    </p>
+                </div>
+            </div>
         </section>
+
+        <!-- Section 2 -->
+        <section class="sec2">
+            <div class="heading">
+                <h2>DNS Zones</h2>
+            </div>
+
+            <div class="grid-container">
+                <div>
+                    <p>
+                        <strong>1. Primary Zone:</strong>
+                        A DNS Primary Zone is created and maintained on the master Domain Controller server (maintains the read/write copy) and dispersed/replicated to all other DNS servers within the Forest or Domain. <br><br>
+            
+                        <strong>2. Secondary Zone:</strong>
+                        A DNS Secondary Zones are created on sub-DNS servers within the forest or domain. These types of servers do not make any changes to the DNS entries, but rather serve those entries to client computers that request them. In this manner, DNS servers with Secondary Zones reduce the workload demand on the primary DNS server. <br><br>
+                        
+                        <strong>3. Forward Lookup Zone:</strong>
+                        All zones created are either Forward Lookup Zones or Reverse Lookup Zones. Forward Lookup Zones resolve Fully Qualified Domain Names (FQDNs), or Host Names, to IP addresses. 
+                    </p>
+                </div>
+                <div>
+                    <p>
+    
+                        <strong>4. Reverse Lookup Zone:</strong>
+                        Reverse Lookup Zones resolve IP addresses to FQDNs. You can run a test in by opening up a Command Prompt in your computer and typing “nslookup www.google.com” and it will return Google's forward-facing DNS server's IP address. <br><br>
+        
+                        <strong>5. Active Directory Integrated Zone:</strong>
+                        Active Directory (AD) Integrated Zones are created as part of a Primary Forward Lookup Zone which integrates with Active Directory. This allows any Domain Controller server running the DNS role, in the domain or forest, to make changes to the zone entries. It also allows for fast and secure updates to the DNS file/entries since all the domain controllers are able to make updates. The DNS file is also encrypted (if Secure Dynamic Updates is enabled). 
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <strong>6. Stub Zone:</strong>
+                        Stub Zones are more or less like Secondary Zones. They make no changes to zone data and are used to enhance the DNS service. The difference is that Stub Zones only contain partial zone data. Stub Zones are mainly used to store and transfer zone data between different domains in a forest. In this sense, they act as Conditional Forwarders (properties of zones to forward DNS data outside of a domain or forest). Stub Zones are considered Auxiliary DNS Zones. <br><br>
+
+                        Another, somewhat hidden, zone is known as a Global Name Zone. A Global Name Zone is specifically created to resolve single-worded host names for IP addresses or Host Names/IP Addresses. This allows name resolution for older Windows NT Operating Systems or WINS servers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- Footer -->
     <footer>
-
+        <div>
+            <p>
+                Copyright &copy; Ekow Yawson 2023
+                <br><br>
+            </p>
+        </div>
     </footer>
 
 </body>
