@@ -1,0 +1,19 @@
+The Domain Name System (DNS) is a service on networked computers that resolves Internet Protocol (IP) addresses to human-readable Host Names and vice-versa. The DNS services on each networked computer is made possible by DNS servers (like Google’s DNS Server at IP address 8.8.8.8). Each DNS server runs protocols, required settings, and services to cache names of hosts along with their associated IP addresses. This allows connected computers to present human readable addresses to their users.
+A Windows Server 2016 DNS server serves cached names of devices and services to all devices signed into the domain. In some cases, DNS servers within a domain serve hostnames and IP addresses (websites) to devices outside of the domain. In order to accomplish this task, the DNS server must be configured correctly. An important part of the DNS configuration is the proper setup of DNS Zones.
+There are six types of DNS Zones: 1) Primary Zone; 2) Secondary Zone; 3) Forward Lookup Zone; 4) Reverse Lookup Zone; 5) Active Directory Integrated Zone; and 6) Stub Zone. 
+Primary and Secondary Zones are further classified as Standard Zones (implying that all others are non-standard).
+Primary Zone:
+A DNS Primary Zone is created and maintained on the master Domain Controller server (maintains the read/write copy) and dispersed/replicated to all other DNS servers within the Forest or Domain. 
+Secondary Zone:
+A DNS Secondary Zones are created on sub-DNS servers within the forest or domain. These types of servers do not make any changes to the DNS entries, but rather serve those entries to client computers that request them. In this manner, DNS servers with Secondary Zones reduce the workload demand on the primary DNS server.
+Forward Lookup Zone:
+All zones created are either Forward Lookup Zones or Reverse Lookup Zones. Forward Lookup Zones resolve Fully Qualified Domain Names (FQDNs), or Host Names, to IP addresses.
+Reverse Lookup Zone:
+Reverse Lookup Zones resolve IP addresses to FQDNs. You can run a test in by opening up a Command Prompt in your computer and typing “nslookup www.google.com” and it will return Google’s forward-facing DNS server’s IP address.
+Active Directory Integrated Zone:
+Active Directory (AD) Integrated Zones are created as part of a Primary Forward Lookup Zone which integrates with Active Directory. This allows any Domain Controller server running the DNS role, in the domain or forest, to make changes to the zone entries. It also allows for fast and secure updates to the DNS file/entries since all the domain controllers are able to make updates. The DNS file is also encrypted (if Secure Dynamic Updates is enabled).
+
+Stub Zone:
+Stub Zones are more or less like Secondary Zones. They make no changes to zone data and are used to enhance the DNS service. The difference is that Stub Zones only contain partial zone data. Stub Zones are mainly used to store and transfer zone data between different domains in a forest. In this sense, they act as Conditional Forwarders (properties of zones to forward DNS data outside of a domain or forest). Stub Zones are considered Auxiliary DNS Zones.
+Another, somewhat hidden, zone is known as a Global Name Zone. A Global Name Zone is specifically created to resolve single-worded host names for IP addresses or Host Names/IP Addresses. This allows name resolution for older Windows NT Operating Systems or WINS servers.
+To protect DNS zones and clients, a System Admin/Engineer can employ a number of methods. These methods include actions such as: encrypting all zone data with multiple encryption methods (i.e., SHA 256, Windows encryption, etc.), utilizing secure zone transfers with AD Integrated Zones, and so forth.
