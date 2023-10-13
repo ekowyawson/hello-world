@@ -301,6 +301,11 @@ section.sec2 p {
     border-left: 4px solid #00c3ff;
 }
 
+#add-pics figure img {
+    max-width: 300px;
+    border-radius: 50%;
+}
+
 /* =================================== FOOTER =================================== */
 footer {
     padding: 20px;
