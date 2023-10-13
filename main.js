@@ -1,5 +1,6 @@
+
 // alert("Hey You! Guess what?");
-alert("You have stumbled upon this awesome website about DNS!\nExciting, right?!");
+// alert("You have stumbled upon this awesome website about DNS!\nExciting, right?!");
 
 function getUserInput() {
     return prompt("What does DNS stand for?\nFor a million dollars, Alex ...");
@@ -41,7 +42,7 @@ function hideResults() {
     setTimeout(() => {
         // remove element from DOM
         userInputClass.classList.add('hide');
-    }, 5000); // time in milliseconds
+    }, 6000); // time in milliseconds
 }
 
 // LAZY CALL INIT FUNCTION
