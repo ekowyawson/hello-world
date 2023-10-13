@@ -32,6 +32,11 @@
             </div>
 
             <div class="heading">
+                <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+                <div id="hid" class="hid">
+                    <iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/3OnNa852yCA?enablejsapi=1" frameborder="0">
+                    </iframe>
+                </div>
                 <h1>The Domain Name System</h1>
             </div>
             
@@ -57,7 +62,7 @@
                 <h2>DNS Zones</h2>
             </div>
 
-            <div class="grid-container">
+            <div class="grid-container add-pics" id="add-pics">
                 <div>
                     <p>
                         <strong>1. Primary Zone:</strong>
@@ -103,5 +108,6 @@
         </div>
     </footer>
 
+    <script src="add-pics.js"></script>
 </body>
 </html>
