@@ -15,6 +15,12 @@
             <a class="active" href="/"><h1>DNS</h1></a>
             <a class="split" href="https://cacosta12345.github.io/hello-world/index"><h1>Check out Chris's Page</h1></a>
         </nav>
+
+        <div class="container user-input">
+            <h4 id="user-input">
+                <script src="main.js"></script>
+            </h4>
+        </div>
     </header>
 
     <!-- Main -->
@@ -26,6 +32,11 @@
             </div>
 
             <div class="heading">
+                <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+                <div id="hid" class="hid">
+                    <iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/3OnNa852yCA?enablejsapi=1" frameborder="0">
+                    </iframe>
+                </div>
                 <h1>The Domain Name System</h1>
             </div>
             
@@ -48,33 +59,6 @@
         <!-- Section 2 -->
         <section class="sec2">
             <div class="heading">
-                <div id="user-input">
-                    <script>
-
-                        alert("Hey You!!");
-                        alert("You have stumbled on an awesome website about DNS! Exciting, right?!");
-
-                        let userInput = prompt("What does DNS stand for? For a million dollars, Alex...");
-
-                        document.write(`Awwww daaaamn! Someone may have just won a million dollars. Let's see what your answer was: [${userInput}]`);
-
-                        let para = document.createElement('div');
-                        let userInputDiv = document.getElementById('user-input');
-
-                        userInput = userInput.toLowerCase();
-
-                        if (userInput == "domain name system") {
-                            para.textContent = `DING DING DING! We have a winner!`
-                            para.style.color = 'green';
-                        } else {
-                            para.textContent = `WOMP WOMP WOOOMP! Sorry, but you failed. Better luck next time.`
-                            para.style.color = 'red';
-                        }
-
-                        userInputDiv.appendChild(para);
-
-                    </script>
-                </div>
                 <h2>DNS Zones</h2>
             </div>
 
